@@ -278,3 +278,81 @@ int main() {
     }
     return 0;
 }
+
+  } else if (strcmp(input, "antivirus scan full") == 0) {
+            printf("\r\n\033[1;33m╔══════════════════════════════════════╗\033[0m\r\n");
+            printf("\033[1;33m║   Carl Antivirus - Escaneo Completo  ║\033[0m\r\n");
+            printf("\033[1;33m╚══════════════════════════════════════╝\033[0m\r\n\r\n");
+            printf("  Cargando motor de escaneo...\r\n");
+            printf("  Cargando base de firmas v1.0.0-LTS...\r\n");
+            printf("  Iniciando analisis heuristico...\r\n\r\n");
+            printf("  Escaneando carl/user/run/home/user ...      \033[1;32m[OK]\033[0m\r\n");
+            printf("  Escaneando carl/user/run/system/user ...    \033[1;32m[OK]\033[0m\r\n");
+            printf("  Escaneando carl/user/run/bin/user ...       \033[1;32m[OK]\033[0m\r\n");
+            printf("  Escaneando carl/user/run/temp/user ...      \033[1;32m[OK]\033[0m\r\n");
+            printf("  Escaneando carl/user/run/appdata/user ...   \033[1;32m[OK]\033[0m\r\n\r\n");
+            printf("  \033[1;37mProgreso: [####################] 100%%\033[0m\r\n\r\n");
+            printf("  \033[1;37mArchivos escaneados: \033[0m1,284\r\n");
+            printf("  \033[1;32mAmenazas detectadas: \033[0m0\r\n");
+            printf("  \033[1;32mArchivos en cuarentena: \033[0m0\r\n\r\n");
+            printf("\033[1;32m[✓] Sistema limpio. Fire Mint esta protegido.\033[0m\r\n");
+        } else if (strncmp(input, "antivirus scan ", 15) == 0) {
+            const char *target = input + 15;
+            printf("\r\n\033[1;33m[Carl Antivirus] Escaneando: carl/user/run/%s/user\033[0m\r\n", target);
+            printf("  Cargando firmas de malware v1.0.0-LTS...\r\n");
+            printf("  Analizando firma MD5/SHA256...\r\n");
+            printf("  Analizando comportamiento heuristico...\r\n");
+            printf("  Verificando patrones de red...\r\n");
+            printf("  Verificando acceso al sistema de archivos...\r\n\r\n");
+            printf("  \033[1;37mNivel de amenaza: \033[1;32mLIMPIO\033[0m\r\n");
+            printf("  \033[1;37mDeteccion: \033[0mNinguna\r\n\r\n");
+            printf("\033[1;32m[✓] Escaneo completado. carl/user/run/%s/user esta limpio.\033[0m\r\n", target);
+        } else if (strcmp(input, "antivirus update") == 0) {
+            printf("\r\n\033[1;33m[Carl Antivirus] Actualizando base de datos...\033[0m\r\n");
+            printf("  Conectando a servidores Carl Cloud...\r\n");
+            printf("  Descargando nuevas firmas...\r\n");
+            printf("  Actualizando motor heuristico...\r\n");
+            printf("  Verificando integridad de la base de datos...\r\n\r\n");
+            printf("\033[1;32m[✓] Actualizado correctamente.\033[0m\r\n");
+            printf("  Firmas:   Version 1.0.0-LTS\r\n");
+            printf("  Motor:    Carl AV Engine 1.0\r\n");
+            printf("  Fuente:   Carl Cloud Official\r\n");
+        } else if (strcmp(input, "antivirus quarantine") == 0) {
+            printf("\r\n\033[1;37m=== Carl Antivirus - Cuarentena ===\033[0m\r\n");
+            printf("  Archivos en cuarentena: \033[1;32m0\033[0m\r\n\r\n");
+            printf("  \033[0;37mNo hay archivos en cuarentena.\033[0m\r\n");
+            printf("  El sistema esta completamente limpio.\r\n");
+        } else if (strcmp(input, "antivirus -v") == 0) {
+            printf("\r\n\033[1;33m╔══════════════════════════════════════╗\033[0m\r\n");
+            printf("\033[1;33m║         Carl Antivirus v1.0.0        ║\033[0m\r\n");
+            printf("\033[1;33m╚══════════════════════════════════════╝\033[0m\r\n\r\n");
+            printf("  Distribucion: \033[1;31mFire Mint\033[0m\r\n");
+            printf("  Basado en:    Carl OS Official\r\n");
+            printf("  Motor:        Carl AV Engine 1.0\r\n");
+            printf("  Firmas:       v1.0.0-LTS\r\n");
+            printf("  Heuristica:   Habilitada\r\n");
+            printf("  Licencia:     \033[1;37mGPLv2\033[0m\r\n");
+            printf("  Autor:        bentosmau-gif\r\n");
+        } else if (strcmp(input, "antivirus status") == 0) {
+            printf("\r\n\033[1;33m╔══════════════════════════════════════╗\033[0m\r\n");
+            printf("\033[1;33m║      Carl Antivirus - Estado         ║\033[0m\r\n");
+            printf("\033[1;33m╚══════════════════════════════════════╝\033[0m\r\n\r\n");
+            printf("  Estado:           \033[1;32mACTIVO\033[0m\r\n");
+            printf("  Proteccion:       \033[1;32mTiempo real ON\033[0m\r\n");
+            printf("  Motor:            Carl AV Engine 1.0\r\n");
+            printf("  Firmas:           v1.0.0-LTS\r\n");
+            printf("  Heuristica:       \033[1;32mHabilitada\033[0m\r\n");
+            printf("  Cuarentena:       0 archivos\r\n");
+            printf("  Ultimo escaneo:   Al iniciar sesion\r\n");
+            printf("  Licencia:         GPLv2 - Carl OS Official\r\n");
+        } else if (strcmp(input, "logout") == 0) {
+            while (!login());
+            clear_screen();
+            printf("\033[1;32m¡Sesion reiniciada con exito!\033[0m\r\n");
+        } else if (strlen(input) > 0) {
+            printf("\r\n\033[1;31mComando desconocido.\033[0m\r\n");
+        }
+        fflush(stdout);
+    }
+    return 0;
+}
